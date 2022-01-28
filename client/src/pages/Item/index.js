@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import Button from "@material-ui/core/Button";
-import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
+import Button from "@mui/material/Button";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import InputAdornment from "@mui/material/InputAdornment";
+import TextField from "@mui/material/TextField";
+import Grid from "@mui/material/Grid";
 import Web3 from "web3";
 
 import { selectedNft, removeSelectedNft } from "../../redux/actions/nftActions";
@@ -82,18 +82,19 @@ const Item = () => {
       ) : (
         <main>
           <header className={classes.pageHeader}>
-            <Link to="/">
+            <Link to="/home">
               <KeyboardBackspaceIcon fontSize="large" />
             </Link>
           </header>
           <section>
-            <Grid container 
-              spacing={0} 
+            <Grid
+              container
+              spacing={0}
               alignItems="center"
-              justify="center"
+              justifyContent="center"
             >
               <Grid item md={7} sm={7} xs={12}>
-                <figure> 
+                <figure>
                   <img className="ui fluid image" src={image} />
                 </figure>
               </Grid>

@@ -6,13 +6,18 @@ import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+
 import { useStyles } from "./styles.js";
 
 import DropZone from "../../components/DropZone";
 
 import { api } from "../../services/api";
 
-const CreateNFT = () => {
+const MintNFT = () => {
   const classes = useStyles();
   const history = useNavigate();
 
@@ -97,6 +102,12 @@ const CreateNFT = () => {
     }
   }
 
+  const [age, setAge] = React.useState("");
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
   return (
     <div className={classes.pageCreateNft}>
       <form onSubmit={createNFT}>
@@ -119,6 +130,7 @@ const CreateNFT = () => {
               value={formData.title}
               onChange={handleInputChange}
               fullWidth
+              sx={{ m: 1 }}
             />
             <TextField
               id="outlined-multiline-static"
@@ -131,6 +143,7 @@ const CreateNFT = () => {
               value={formData.description}
               onChange={handleInputChange}
               fullWidth
+              sx={{ m: 1 }}
             />
             <TextField
               label="price"
@@ -144,9 +157,32 @@ const CreateNFT = () => {
                 ),
               }}
               fullWidth
+              sx={{ m: 1 }}
             />
+            <FormControl
+              variant="filled"
+              sx={{ m: 1 }}
+              fullWidth
+            >
+              <InputLabel id="demo-simple-select-filled-label">
+                NFT Collection
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-filled-label"
+                id="demo-simple-select-filled"
+                value={age}
+                onChange={handleChange}
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </Select>
+            </FormControl>
 
-            <Button variant="contained" color="primary" type="submit">
+            <Button sx={{ m: 1 }} variant="contained" color="primary" type="submit">
               Submit
             </Button>
           </fieldset>
@@ -156,4 +192,4 @@ const CreateNFT = () => {
   );
 };
 
-export default CreateNFT;
+export default MintNFT;

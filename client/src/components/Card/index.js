@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Web3 from "web3";
 
-import { Card as MuiCard } from "@material-ui/core";
-import Chip from "@material-ui/core/Chip";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import Divider from "@material-ui/core/Divider";
-import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
-import CardContent from "@material-ui/core/CardContent";
-import CardActionArea from "@material-ui/core/CardActionArea";
+import { Card as MuiCard } from "@mui/material";
+import Chip from "@mui/material/Chip";
+import SvgIcon from "@mui/material/SvgIcon";
+import Divider from "@mui/material/Divider";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import CardContent from "@mui/material/CardContent";
+import CardActionArea from "@mui/material/CardActionArea";
 
 import { useStyles } from "./styles.js";
 import { ReactComponent as EthereumLogo } from "../../assets/ethereum_logo.svg";
@@ -50,7 +50,7 @@ const Card = ({ tokenId, name, image, price, owner, isForSale }) => {
                 viewBox="0 0 400 426.6"
                 titleAccess="ETH"
               />
-              <span>{Web3.utils.fromWei(String(price), "ether")}.120000</span>
+              <span>{Web3.utils.fromWei(String(price), "wei")}</span>
             </Typography>
             <Divider className={classes.divider} light />
             <Typography

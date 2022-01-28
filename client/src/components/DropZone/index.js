@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import {useDropzone} from 'react-dropzone';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 import { useStyles } from "./styles.js";
 

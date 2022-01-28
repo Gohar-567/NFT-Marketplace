@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles({
   homepage: {
@@ -30,7 +30,7 @@ const useStyles = makeStyles({
       width: "55%"
     },
     '& p': {
-      margin: "3rem 8rem 4rem 8.5rem",
+      margin: "1rem",
       fontSize: "1.2rem",
       textAlign: "center"
     },
@@ -48,8 +48,8 @@ const useStyles = makeStyles({
   },
   title: {
     fontFamily: "sans-serif",
-    fontSize: "1.8rem",
-    fontWeight: "600",
+    fontSize: "2.8rem !important",
+    fontWeight: "1000",
     marginBottom: "1rem",
   }
 });

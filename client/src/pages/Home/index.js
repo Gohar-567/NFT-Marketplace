@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Button from '@material-ui/core/Button';
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
 import getWeb3 from "../../utils/getWeb3";
 import { api } from "../../services/api";
@@ -31,10 +31,10 @@ import wale from "../../assets/arts/luzhan-liu-1-1500.jpg";
 import comic from "../../assets/arts/daniel-taylor-black-and-white-2019-2.jpg";
 import galerie from "../../assets/galerie.svg";
 
-
 const Home = () => {
   const classes = useStyles();
   const nft = useSelector((state) => state.allNft.nft);
+  debugger;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -77,9 +77,11 @@ const Home = () => {
                 console.log("Err: ", err);
               });
             console.log("response: ", response);
+            debugger;
 
             itemsList.push({
               name: response.data.name,
+              price: response.data.price,
               description: response.data.description,
               image: response.data.image,
               tokenId: item.id,
@@ -88,7 +90,7 @@ const Home = () => {
               uri: item.uri,
               isForSale: false,
               saleId: null,
-              price: 0,
+              // price: 0,
               isSold: null,
             });
           }
@@ -145,51 +147,19 @@ const Home = () => {
     <div className={classes.homepage}>
       <section className={classes.banner}>
         <Grid container spacing={0} xs={12} className={classes.gridBanner}>
-          <Grid item xs={3}>
-            <Grid container spacing={0}>
-              <Grid item xs={8}>
-                <img src={dreaming} alt="dreaming" className={classes.images} />
-              </Grid>
-              <Grid item xs={4}>
-                <img src={veterans} alt="veterans" className={classes.images} />
-              </Grid>
-              <Grid item xs={7}>
-                <img src={modeling3d} alt="modeling3d" className={classes.images} />
-              </Grid>
-              <Grid item xs={5}>
-                <img src={lionKing} alt="lionKing" className={classes.images} />
-              </Grid>
-            </Grid>
-          </Grid>
+          <Grid item xs={3}></Grid>
           <Grid item xs={6} className={classes.main}>
-            <img src={galerie} alt="galerie" />
-            <Typography>A decentralized NFT marketplace where you can expose your art.</Typography>
             <Link to="/create-nft">
               <Button variant="contained" color="primary" disableElevation>
-                Mint your art
+                Mint your NFT
               </Button>
             </Link>
+            <Typography className={classes.title}>My Gallery</Typography>
           </Grid>
-          <Grid item xs={3}>
-            <Grid container spacing={0}>
-              <Grid item xs={8}>
-                <img src={stones} alt="dreaming" className={classes.images} />
-              </Grid>
-              <Grid item xs={4}>
-                <img src={woman} alt="veterans" className={classes.images} />
-              </Grid>
-              <Grid item xs={7}>
-                <img src={wale} alt="modeling3d" className={classes.images} />
-              </Grid>
-              <Grid item xs={5}>
-                <img src={comic} alt="lionKing" className={classes.images} />
-              </Grid>
-            </Grid>
-          </Grid>
+          <Grid item xs={3}></Grid>
         </Grid>
       </section>
       <section className={classes.allNfts}>
-        <Typography className={classes.title}>Latest artwork</Typography>
         <Grid
           container
           direction="row"
